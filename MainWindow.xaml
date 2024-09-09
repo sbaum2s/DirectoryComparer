@@ -1,0 +1,68 @@
+﻿<Window x:Class="DirectoryComparer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DirectoryComparer"
+        mc:Ignorable="d"
+        Title="Directory Comparer" MinHeight="400" MinWidth="600" WindowState="Maximized">
+    <Grid ShowGridLines="False" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" MinHeight="50"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Margin" Value="4,0,0,0" />
+            </Style>
+            <Style TargetType="{x:Type ListBox}">
+                <Setter Property="Margin" Value="4,4,0,0" />
+            </Style>
+        </Grid.Resources>
+        <!-- GridSplitter Grid.Column="1" 
+              Grid.RowSpan="4" 
+              HorizontalAlignment="left" 
+              VerticalAlignment="Stretch"
+              Background="LightBlue"
+              ShowsPreview="false"
+              Width="5"/>
+<GridSplitter Grid.Column="2" 
+      Grid.RowSpan="4" 
+      HorizontalAlignment="left" 
+      VerticalAlignment="Stretch"
+      Background="LightBlue"
+      ShowsPreview="false"
+      Width="5"/> -->
+        <!-- <GridSplitter Grid.Row="3" 
+              Height="5" 
+              Grid.ColumnSpan ="1" 
+              Background="LightBlue" 
+              VerticalAlignment="Top" 
+              HorizontalAlignment="Stretch" 
+              ResizeBehavior="PreviousAndNext">
+</GridSplitter> -->
+        <Button Grid.Column="0" Grid.Row="0" Content="Open Folder" x:Name="OpenFolderLeftSide" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnOpenFolder_Click"/>
+
+        <Label Grid.Column="0" Grid.Row="1" Content="Number of items: " x:Name="numberItemsLeftSide" />
+        <Label Grid.Column="0" Grid.Row="2" Content="Path of items: " x:Name="pathItemsLeftSide" />
+        <ListBox Grid.Column="0" Grid.Row="3" DisplayMemberPath="Name" x:Name="myListViewLeftSide" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+        <Button Grid.Column="1" Grid.Row="0" Content="Open Folder" x:Name="OpenFolderMiddle" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnOpenFolder_Click"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="Number of items: " x:Name="numberItemsMiddle" />
+        <Label Grid.Column="1" Grid.Row="2" Content="Path of items: " x:Name="pathItemsMiddle" />
+        <ListBox Grid.Column="1" Grid.Row="3" DisplayMemberPath="Name" x:Name="myListViewMiddle" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+        <Button Grid.Column="2" Grid.Row="0" Content="Show difference" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnDifference_Click"/>
+
+        <Label Grid.Column="2" Grid.Row="1" Content="Number of items: " x:Name="numberItemsCompareResult" />
+        <Label Grid.Column="2" Grid.Row="2" Content="" />
+        <ListBox Grid.Column="2" Grid.Row="3" DisplayMemberPath="Name" x:Name="myListViewCompareResult" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+    </Grid>
+</Window>
