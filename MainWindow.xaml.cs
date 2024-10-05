@@ -76,7 +76,7 @@ namespace DirectoryComparer
                     }
                 }
                 if (!isInList)
-                    filteredList.Add(addItemMiddle);
+                    filteredList.Add(itemLeft);
             }
 
             // adding items available only on the right side

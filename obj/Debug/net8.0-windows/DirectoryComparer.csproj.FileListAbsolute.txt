@@ -18,3 +18,4 @@ C:\myProjects\C#\DirectoryComparer\obj\Debug\net8.0-windows\refint\DirectoryComp
 C:\myProjects\C#\DirectoryComparer\obj\Debug\net8.0-windows\DirectoryComparer.pdb
 C:\myProjects\C#\DirectoryComparer\obj\Debug\net8.0-windows\DirectoryComparer.genruntimeconfig.cache
 C:\myProjects\C#\DirectoryComparer\obj\Debug\net8.0-windows\ref\DirectoryComparer.dll
+C:\myProjects\C#\DirectoryComparer\obj\Debug\net8.0-windows\DirectoryComparer.sourcelink.json

@@ -52,7 +52,26 @@
 
         <Label Grid.Column="0" Grid.Row="1" Content="Number of items: " x:Name="numberItemsLeftSide" />
         <Label Grid.Column="0" Grid.Row="2" Content="Path of items: " x:Name="pathItemsLeftSide" />
-        <ListBox Grid.Column="0" Grid.Row="3" DisplayMemberPath="Name" x:Name="myListViewLeftSide" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox Grid.Column="0" Grid.Row="3" x:Name="myListViewLeftSide" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="{Binding ForegroundColor}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}"
+                                         Value="True">
+                                        <Setter Property="Background" Value="Blue" />
+                                        <Setter Property="Foreground" Value="{StaticResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Button Grid.Column="1" Grid.Row="0" Content="Open Folder" x:Name="OpenFolderMiddle" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnOpenFolder_Click"/>
         <Label Grid.Column="1" Grid.Row="1" Content="Number of items: " x:Name="numberItemsMiddle" />
