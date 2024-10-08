@@ -34,12 +34,25 @@ namespace DirectoryComparer
             if (folderDialog.ShowDialog() == true)
             {
                 List<ListBoxModel> lt = new List<ListBoxModel>();
-                string[] dicFileList = Directory.GetFiles(folderDialog.FolderName, "*.*", SearchOption.TopDirectoryOnly);
+                string[] dicFileList = Array.Empty<string>();
+
+                try 
+                {
+                    dicFileList = Directory.GetFileSystemEntries(folderDialog.FolderName, "*.*", SearchOption.AllDirectories);
+                }
+                catch(UnauthorizedAccessException exp)
+                {
+                    Console.WriteLine("Access denied " + exp.Message.ToString());
+                }
+
                 foreach (string element in dicFileList)
                 {
-                    myModel = new ListBoxModel();
-                    myModel.Name = System.IO.Path.GetFileName(element);
-                    lt.Add(myModel);
+                    if (File.Exists(element))
+                    {
+                        myModel = new ListBoxModel();
+                        myModel.Name = System.IO.Path.GetFileName(element);
+                        lt.Add(myModel);
+                    }
                 }
 
                 if ((sender as Button).Name == "OpenFolderLeftSide")
@@ -55,6 +68,13 @@ namespace DirectoryComparer
                     numberItemsMiddle.Content = "Number of items: " + myListViewMiddle.Items.Count;
                 }
             }
+        }
+
+        private string[]? ProcessDir(string path)
+        {
+            string[] files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
+
+            return files;
         }
 
         private void btnDifference_Click(object sender, RoutedEventArgs e)

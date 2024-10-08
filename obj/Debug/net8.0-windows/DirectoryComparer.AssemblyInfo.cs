@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DirectoryComparer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f327530608eb69b4fb416df179c96c6f612983e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21ec601b8d960be600b8046ae5fe7452bc252263")]
 [assembly: System.Reflection.AssemblyProductAttribute("DirectoryComparer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DirectoryComparer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
